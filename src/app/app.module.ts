@@ -6,9 +6,13 @@ import { ConnexionComponent } from './connexion/connexion.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MedicamentComponent } from './medicament/medicament.component';
+import { MedecinsComponent } from './medecins/medecins.component';
+import { RapportsComponent } from './rapports/rapports.component';
 
 const appRoutes: Routes = [
   {path : 'not-found',component:FourOhFourComponent},
+  {path: '', component:ConnexionComponent},
   {path : '**', redirectTo : '/not-found'}
 ]
 
@@ -16,7 +20,10 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ConnexionComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    MedicamentComponent,
+    MedecinsComponent,
+    RapportsComponent
   ],
   imports: [
     BrowserModule,
