@@ -10,6 +10,7 @@ import { MedicamentComponent } from './medicament/medicament.component';
 import { MedecinsComponent } from './medecins/medecins.component';
 import { RapportsComponent } from './rapports/rapports.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { MedicamentListeComponent } from './medicament-liste/medicament-liste.component';
 
 const appRoutes: Routes = [
   // TODO ajouter une guard mais pour ça d'abord créer le système d'authentification
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     MedicamentComponent,
     MedecinsComponent,
     RapportsComponent,
-    AccueilComponent
+    AccueilComponent,
+    MedicamentListeComponent
   ],
   imports: [
     BrowserModule,
