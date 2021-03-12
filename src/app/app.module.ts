@@ -10,7 +10,12 @@ import { MedicamentComponent } from './medicament/medicament.component';
 import { MedecinsComponent } from './medecins/medecins.component';
 import { RapportsComponent } from './rapports/rapports.component';
 import { AccueilComponent } from './accueil/accueil.component';
+
 import { MedicamentListeComponent } from './medicament-liste/medicament-liste.component';
+
+import { MedecinService } from './services/medecin.service';
+import { MedicamentService } from './services/medicament.service';
+import { RapportService } from './services/rapport.service';
 
 const appRoutes: Routes = [
   // TODO ajouter une guard mais pour ça d'abord créer le système d'authentification
@@ -33,6 +38,7 @@ const appRoutes: Routes = [
     RapportsComponent,
     AccueilComponent,
     MedicamentListeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,11 @@ const appRoutes: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    MedecinService,
+    MedicamentService,
+    RapportService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
