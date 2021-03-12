@@ -11,10 +11,14 @@ export class MedecinService{
    
     constructor(private HttpClient : HttpClient){ }
 
+    
     getMedecinsFromServer(){
         this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesMedecins').subscribe((responce) =>{
             this.medecins = responce;
             this.emitMedecinSubject();
+            console.log(responce);
+        },(error)=>{
+            console.log('Erreur : ' + error);
         })
     }
 
@@ -24,9 +28,9 @@ export class MedecinService{
             this.emitMedecinSubject();
         })
     }
-
+    
     emitMedecinSubject(){
         this.medecinSubject.next(this.medecins.slice());
     }
-
+    
 }
