@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>Nos médecins</h2>
+            <ul class="list-group">
+                <app-medecins *ngFor="let medecin of medecins;let i = index" [medecinNom]="medecin.nom" [medecinprenom]="medecin.prenom" [medecinTel]="medecin.tel">
+                </app-medecins>
+            </ul>
+        </div>
+    </div>
+</div>

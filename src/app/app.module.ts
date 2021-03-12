@@ -13,12 +13,13 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { MedecinService } from './services/medecin.service';
 import { MedicamentService } from './services/medicament.service';
 import { RapportService } from './services/rapport.service';
+import { MedecinsViewComponent } from './medecins-view/medecins-view.component';
 
 const appRoutes: Routes = [
   // TODO ajouter une guard mais pour ça d'abord créer le système d'authentification
   {path: 'accueil', component: AccueilComponent},
   {path: 'medicaments', component: MedicamentComponent},
-  {path: 'medecins', component: MedecinsComponent},
+  {path: 'medecins', component: MedecinsViewComponent},
   {path: 'rapports', component: RapportsComponent},
   {path: '', component:ConnexionComponent},
   {path : 'not-found',component:FourOhFourComponent},
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     MedecinsComponent,
     RapportsComponent,
     AccueilComponent,
+    MedecinsViewComponent,
   ],
   imports: [
     BrowserModule,
