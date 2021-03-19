@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>Mes rapports</h2>
+            <app-rapports *ngFor="let rapport of rapports;let i = index" [rapportID]="rapport.id" [visiteurID]="rapport.idVisiteur" [medecinID]="rapport.idMedecin">
+            </app-rapports>
+        </div>
+    </div>
+</div>

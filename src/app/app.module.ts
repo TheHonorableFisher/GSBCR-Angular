@@ -14,13 +14,18 @@ import { MedecinService } from './services/medecin.service';
 import { MedicamentService } from './services/medicament.service';
 import { RapportService } from './services/rapport.service';
 import { MedecinsViewComponent } from './medecins-view/medecins-view.component';
+import { RapportsViewComponent } from './rapports-view/rapports-view.component';
+import { AuthGuard } from './services/AuthGuards.service';
+import {AuthService} from './services/auth.service';
+import { VisiteurService } from './services/visiteur.service';
 
 const appRoutes: Routes = [
   // TODO ajouter une guard mais pour ça d'abord créer le système d'authentification
-  {path: 'accueil', component: AccueilComponent},
-  {path: 'medicaments', component: MedicamentComponent},
-  {path: 'medecins', component: MedecinsViewComponent},
-  {path: 'rapports', component: RapportsComponent},
+  {path: 'accueil',canActivate: [AuthGuard] ,component: AccueilComponent},
+  {path: 'medicaments',canActivate: [AuthGuard], component: MedicamentComponent},
+  {path: 'medecins',canActivate: [AuthGuard], component: MedecinsViewComponent},
+  {path: 'rapports',canActivate: [AuthGuard], component: RapportsViewComponent},
+  {path : 'connection',component: ConnexionComponent},
   {path: '', component:ConnexionComponent},
   {path : 'not-found',component:FourOhFourComponent},
   {path : '**', redirectTo : '/not-found'}
@@ -36,6 +41,7 @@ const appRoutes: Routes = [
     RapportsComponent,
     AccueilComponent,
     MedecinsViewComponent,
+    RapportsViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +53,9 @@ const appRoutes: Routes = [
     MedecinService,
     MedicamentService,
     RapportService,
+    AuthService,
+    VisiteurService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -34,7 +34,4 @@ export class MedecinsViewComponent implements OnInit {
     this.medecinSubscription.unsubscribe();
   }
 
-  onFetch(){
-    this.medecinService.getMedecinsFromServer();
-  }
 }
