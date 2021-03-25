@@ -20,7 +20,6 @@ import {AuthService} from './services/auth.service';
 import { VisiteurService } from './services/visiteur.service';
 
 const appRoutes: Routes = [
-  // TODO ajouter une guard mais pour ça d'abord créer le système d'authentification
   {path: 'accueil',canActivate: [AuthGuard] ,component: AccueilComponent},
   {path: 'medicaments',canActivate: [AuthGuard], component: MedicamentComponent},
   {path: 'medecins',canActivate: [AuthGuard], component: MedecinsViewComponent},

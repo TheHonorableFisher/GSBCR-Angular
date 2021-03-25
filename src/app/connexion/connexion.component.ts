@@ -22,35 +22,28 @@ export class ConnexionComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private visiteurService: VisiteurService) { }
 
   ngOnInit(): void {
-    this.authStatus = this.authService.isAuth;
-
-    this.visiteurSubscription = this.visiteurService.visiteurSubject.subscribe((visiteurs: any[]) =>{
-      this.visiteurs = visiteurs;
-    })
+    this.visiteurService.getConnexion('dandre','oppg5');
   }
 
-  onSignIn(event: any) {
+  onSignIn() {
+    
+    if(this.visiteurService.getVisiteur()){
+      this.authService.isAuth = true;
 
-    this.visiteurService.getConnexion(this.username,this.pwd);
+      this.visiteurs = this.visiteurService.getVisiteur();
 
-    console.log(this.visiteurs);
+      sessionStorage.setItem('id',this.visiteurs['id']);
+      sessionStorage.setItem('nom',this.visiteurs['nom']);
+      sessionStorage.setItem('prenom',this.visiteurs['prenom']);
+      sessionStorage.setItem('adresse',this.visiteurs['adresse']);
+      sessionStorage.setItem('cp',this.visiteurs['cp']);
+      sessionStorage.setItem('ville',this.visiteurs['ville']);
 
-    /*
-    if (this.donnee.length != 0) {
-      
-      sessionStorage.setItem('id',this.donnee['id']);
-      sessionStorage.setItem('nom',this.donnee['nom']);
-      sessionStorage.setItem('prenom',this.donnee['prenom']);
-      
-      this.authService.signIn().then(
-        () => {
-          console.log(sessionStorage.getItem('id') + " " + sessionStorage.getItem('nom') + " " + sessionStorage.getItem('prenom') )
-          this.authStatus = this.authService.isAuth;
-          this.router.navigate(['accueil']);
-        }
-      )
-    }*/
+      this.router.navigateByUrl("/accueil");
 
+    }else{
+      // TODO afficher message d'erreur
+    }
   }
 
   getUsername(event: any) {

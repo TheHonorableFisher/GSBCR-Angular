@@ -22,8 +22,8 @@ export class MedecinService{
         })
     }
 
-    getMedecinFromServerById($id){
-        this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesMedecins&id='+$id).subscribe((responce) =>{
+    getMedecinFromServerById(id){
+        this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesMedecins&id='+id).subscribe((responce) =>{
             this.medecins = responce;
             this.emitMedecinSubject();
         })
