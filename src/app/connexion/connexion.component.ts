@@ -23,6 +23,7 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit(): void {
     this.visiteurService.getConnexion('dandre','oppg5');
+    console.log(this.visiteurService);
   }
 
   onSignIn() {
@@ -38,7 +39,7 @@ export class ConnexionComponent implements OnInit {
       sessionStorage.setItem('adresse',this.visiteurs['adresse']);
       sessionStorage.setItem('cp',this.visiteurs['cp']);
       sessionStorage.setItem('ville',this.visiteurs['ville']);
-
+      
       this.router.navigateByUrl("/accueil");
 
     }else{

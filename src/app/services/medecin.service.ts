@@ -13,7 +13,7 @@ export class MedecinService{
 
     
     getMedecinsFromServer(){
-        this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesMedecins').subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedecins').subscribe((responce) =>{
             this.medecins = responce;
             this.emitMedecinSubject();
             console.log(responce);
@@ -23,7 +23,7 @@ export class MedecinService{
     }
 
     getMedecinFromServerById(id){
-        this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesMedecins&id='+id).subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedecins&id='+id).subscribe((responce) =>{
             this.medecins = responce;
             this.emitMedecinSubject();
         })
