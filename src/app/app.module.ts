@@ -18,13 +18,14 @@ import { RapportsViewComponent } from './rapports-view/rapports-view.component';
 import { AuthGuard } from './services/AuthGuards.service';
 import {AuthService} from './services/auth.service';
 import { VisiteurService } from './services/visiteur.service';
+import { ConnexionViewComponent } from './connexion-view/connexion-view.component';
 
 const appRoutes: Routes = [
   {path: 'accueil',canActivate: [AuthGuard] ,component: AccueilComponent},
   {path: 'medicaments',canActivate: [AuthGuard], component: MedicamentComponent},
   {path: 'medecins',canActivate: [AuthGuard], component: MedecinsViewComponent},
   {path: 'rapports',canActivate: [AuthGuard], component: RapportsViewComponent},
-  {path : 'connection',component: ConnexionComponent},
+  {path : 'connection',component: ConnexionViewComponent},
   {path: '', component:ConnexionComponent},
   {path : 'not-found',component:FourOhFourComponent},
   {path : '**', redirectTo : '/not-found'}
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
     AccueilComponent,
     MedecinsViewComponent,
     RapportsViewComponent,
+    ConnexionViewComponent,
   ],
   imports: [
     BrowserModule,
