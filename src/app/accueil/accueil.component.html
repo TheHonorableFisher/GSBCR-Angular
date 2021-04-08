@@ -1,1 +1,25 @@
-<p>accueil works!</p>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/accueil" routerLinkActive="active">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/medecins" routerLinkActive="active">Medecins</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/medicaments" routerLinkActive="active">Medicaments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/rapports" routerLinkActive="active">Rapports</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="body">
+    <h1 class="screen-centered center">Bienvenue {{nom}} {{prenom}} ! </h1>
+
+</div>

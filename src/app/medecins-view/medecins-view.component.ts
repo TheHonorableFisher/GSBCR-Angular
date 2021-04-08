@@ -22,6 +22,7 @@ export class MedecinsViewComponent implements OnInit {
   ngOnInit(): void {
     this.medecinSubscription = this.medecinService.medecinSubject.subscribe((medecins: any[]) => {
       this.medecins = medecins;
+      console.log('test1 : ' + this.medecins);
     });
     this.medecinService.emitMedecinSubject();
 
@@ -34,7 +35,4 @@ export class MedecinsViewComponent implements OnInit {
     this.medecinSubscription.unsubscribe();
   }
 
-  onFetch(){
-    this.medecinService.getMedecinsFromServer();
-  }
 }

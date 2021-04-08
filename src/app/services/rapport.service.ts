@@ -12,14 +12,14 @@ export class RapportService{
     constructor(private HttpClient : HttpClient){ }
 
     getRapportsFromServer(){
-        this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesRapports').subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesRapports').subscribe((responce) =>{
             this.rapports = responce;
             this.emitRapportSubject();
         })
     }
 
     getRapportFromServerById($id){
-        this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesRapports&id='+$id).subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesRapports&id='+$id).subscribe((responce) =>{
             this.rapports = responce;
             this.emitRapportSubject();
         })

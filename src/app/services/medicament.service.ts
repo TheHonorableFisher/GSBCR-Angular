@@ -12,14 +12,14 @@ export class MedicamentService{
     constructor(private HttpClient : HttpClient){ }
 
     getMedicamentsFromServer(){
-        this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesMedicaments').subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedicaments').subscribe((responce) =>{
             this.medicaments = responce;
             this.emitMedicamentSubject();
         })
     }
 
     getMedicamentFromServerById($id){
-        this.HttpClient.get<any[]>('http://172.29.1.31/Mael/GSBCR-Angular/server/?param=getToutLesMedicaments&id='+$id).subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedicaments&id='+$id).subscribe((responce) =>{
             this.medicaments = responce;
             this.emitMedicamentSubject();
         })
