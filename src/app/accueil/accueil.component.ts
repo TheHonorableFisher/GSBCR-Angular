@@ -8,14 +8,10 @@ import { Router } from '@angular/router';
 })
 export class AccueilComponent implements OnInit {
 
-  nom: string;
-  prenom: string;
-
   constructor(private router : Router) { }
 
   ngOnInit(): void {
-    this.nom = sessionStorage.getItem('nom');
-    this.prenom = sessionStorage.getItem('prenom');
+    
   }
 
   goTo() {

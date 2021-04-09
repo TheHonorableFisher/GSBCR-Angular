@@ -9,12 +9,15 @@ import { RapportService } from '../services/rapport.service';
 export class RapportsComponent implements OnInit {
 
   @Input() rapportID : string;
-  @Input() visiteurID : string;
-  @Input() medecinID : string;
+  @Input() rapportMotif : string;
+  @Input() rapportBilan : string;
+  @Input() rapportDate: string;
+  @Input() rapportMedecin : string;
 
   constructor(private rapportservice: RapportService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

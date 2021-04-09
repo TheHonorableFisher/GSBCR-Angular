@@ -19,10 +19,12 @@ import { AuthGuard } from './services/AuthGuards.service';
 import {AuthService} from './services/auth.service';
 import { VisiteurService } from './services/visiteur.service';
 import { ConnexionViewComponent } from './connexion-view/connexion-view.component';
+import { AccueilViewComponent } from './accueil-view/accueil-view.component';
+import { MedicamentViewComponent } from './medicament-view/medicament-view.component';
 
 const appRoutes: Routes = [
-  {path: 'accueil',canActivate: [AuthGuard] ,component: AccueilComponent},
-  {path: 'medicaments',canActivate: [AuthGuard], component: MedicamentComponent},
+  {path: 'accueil',canActivate: [AuthGuard] ,component: AccueilViewComponent},
+  {path: 'medicaments',canActivate: [AuthGuard], component: MedicamentViewComponent},
   {path: 'medecins',canActivate: [AuthGuard], component: MedecinsViewComponent},
   {path: 'rapports',canActivate: [AuthGuard], component: RapportsViewComponent},
   {path : 'connection',component: ConnexionViewComponent},
@@ -43,6 +45,8 @@ const appRoutes: Routes = [
     MedecinsViewComponent,
     RapportsViewComponent,
     ConnexionViewComponent,
+    AccueilViewComponent,
+    MedicamentViewComponent,
   ],
   imports: [
     BrowserModule,

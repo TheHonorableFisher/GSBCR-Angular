@@ -1,0 +1,12 @@
+.centered{
+    text-align: center;
+}
+
+.position-corriger{
+    margin-left: -50px;
+}
+
+th{
+    width: 400px;
+    min-width: 250px;
+}

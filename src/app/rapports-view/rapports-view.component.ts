@@ -25,7 +25,7 @@ export class RapportsViewComponent implements OnInit {
     this.rapportService.emitRapportSubject();
 
     // appel pour récupérer les rapports sinon ça marche pas
-    this.rapportService.getRapportsFromServer();
+    this.rapportService.getRapportsFromServer(sessionStorage.getItem('id'));
   }
 
   ngOnDestroy(){

@@ -1,0 +1,21 @@
+<app-accueil></app-accueil>
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr class="centered">
+                    <th>Image</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Effets secondaires</th>
+                </tr>
+            </thead>
+        </table>
+        <app-medicament *ngFor="let medicament of medicaments" [medicamentNom]="medicament.nomCommercial"
+            [medicamentDesc]="medicament.effets" [medicamentEffetIndesirable]="medicament.contreIndications"
+            [medicamentImg]="medicament.img">
+        </app-medicament>
+
+    </div>
+</div>

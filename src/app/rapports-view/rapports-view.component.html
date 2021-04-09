@@ -1,9 +1,24 @@
+<app-accueil></app-accueil>
+
 <div class="container">
     <div class="row">
-        <div class="col-xs-6">
-            <h2>Mes rapports</h2>
-            <app-rapports *ngFor="let rapport of rapports;let i = index" [rapportID]="rapport.id" [visiteurID]="rapport.idVisiteur" [medecinID]="rapport.idMedecin">
-            </app-rapports>
-        </div>
+
+        <h2>Mes rapports</h2>
+        <table class="table position-corriger">
+            <thead>
+                <tr class="centered">
+                    <th>Numéro du rapport</th>
+                    <th>Motif de la visite</th>
+                    <th>Bilan</th>
+                    <th>Date</th>
+                    <th>Pris en charge par</th>
+                </tr>
+            </thead>
+        </table>
+        <app-rapports *ngFor="let rapport of rapports;let i = index" [rapportID]="rapport.id"
+            [rapportMotif]="rapport.motif" [rapportBilan]="rapport.bilan" [rapportDate]="rapport.date"
+            [rapportMedecin]="rapport.nom">
+        </app-rapports>
+
     </div>
 </div>

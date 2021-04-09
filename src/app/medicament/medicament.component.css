@@ -1,0 +1,9 @@
+.maxLargeur{
+    max-width: 80%;
+}
+
+td{
+    width: 400px;
+    vertical-align: middle;
+    text-align: center;
+}
