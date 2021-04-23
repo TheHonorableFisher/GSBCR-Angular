@@ -1,0 +1,28 @@
+.centered{
+    text-align: center;
+}
+
+.position-corriger{
+    margin-left: -50px;
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+}
+
+#rechercheMedecin{
+    width: 50%;
+    float: left;
+}
+
+#bouttonRecherche{
+    float: none;
+    margin-left: 20px;
+    vertical-align: -moz-middle-with-baseline;
+}
+
+th{
+    width: 400px;
+    min-width: 250px;
+}
