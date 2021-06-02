@@ -12,10 +12,6 @@ export class RapportsViewComponent implements OnInit {
   rapports: any[];
   rapportSubscription: Subscription;
 
-  @Input() rapportID: string;
-  @Input() visiteurID : string;
-  @Input() medecinID : string;
-
   constructor(private rapportService: RapportService) { }
 
   ngOnInit(): void {

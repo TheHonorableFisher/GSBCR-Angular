@@ -2,23 +2,33 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-xs-10">
 
-        <h2>Mes rapports</h2>
-        <table class="table position-corriger">
-            <thead>
-                <tr class="centered">
-                    <th>Numéro du rapport</th>
-                    <th>Motif de la visite</th>
-                    <th>Bilan</th>
-                    <th>Date</th>
-                    <th>Pris en charge par</th>
-                </tr>
-            </thead>
-        </table>
-        <app-rapports *ngFor="let rapport of rapports;let i = index" [rapportID]="rapport.id"
-            [rapportMotif]="rapport.motif" [rapportBilan]="rapport.bilan" [rapportDate]="rapport.date"
-            [rapportMedecin]="rapport.nom">
-        </app-rapports>
+            <h1 class="centered title">Mes rapports</h1>
+            
+            <br>
 
+            <div class="btnAddRapport">
+                <a routerLink="../rapports/add"><button>Ajouter un rapport</button></a>
+            </div>
+
+            <br>
+
+            <table class="table position-corriger">
+                <thead>
+                    <tr class="centered">
+                        <th>Numéro du rapport</th>
+                        <th>Motif de la visite</th>
+                        <th>Bilan</th>
+                        <th>Date</th>
+                        <th>Pris en charge par</th>
+                    </tr>
+                </thead>
+            </table>
+            <app-rapports *ngFor="let rapport of rapports" [rapportID]="rapport.id"
+                [rapportMotif]="rapport.motif" [rapportBilan]="rapport.bilan" [rapportDate]="rapport.date"
+                [rapportMedecin]="rapport.nom" [id]="rapport.idMedecin">
+            </app-rapports>
+        </div>
     </div>
 </div>

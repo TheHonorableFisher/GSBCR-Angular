@@ -26,6 +26,17 @@ body {
     transform-box: fill-box;
 }
 
+.lostText1{
+    text-align: center;
+    font-size: 42px;
+    color: white;
+}
+
+.lostText2{
+    text-align: center;
+    font-size: 22px;
+    color: white;
+}
 
 /*************swing************/
 

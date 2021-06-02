@@ -10,3 +10,12 @@ th{
     width: 400px;
     min-width: 250px;
 }
+.title{
+    text-align: center;
+    font-weight: bold;
+}
+
+.btnAddRapport{
+    text-align: right;
+    margin-right: 20px;
+}

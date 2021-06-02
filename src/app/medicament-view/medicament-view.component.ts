@@ -27,8 +27,11 @@ export class MedicamentViewComponent implements OnInit {
 
     // appel pour récupérer les médicament sinon ça marche pas
     this.medicamentService.getMedicamentsFromServer();
+  }
 
-    console.log(this.medicaments);
+  onRecherche(){
+    var nom = ((document.getElementById('rechercheMedicament') as HTMLInputElement).value);
+    this.medicamentService.getMedicamentFromServerByNom(nom);
   }
 
 }

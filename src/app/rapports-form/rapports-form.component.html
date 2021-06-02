@@ -1,0 +1,38 @@
+<app-accueil></app-accueil>
+
+<div class="container">
+    <div class="row">
+        <div style="width: 100%;">
+
+            <h1 class="centered title">Création d'un rapport</h1>
+            <br>
+            <form #rapportForm="ngForm" (submit)="onSubmit(rapportForm)" class="form">
+                <label>
+                    IdVisiteur :
+                    <input name="idVisiteur" [(ngModel)]="idVisiteur" value="{{idVisiteur}}" readonly>
+                </label>
+                <br><br>
+                <label>
+                    Motif :
+                    <input name="motif" [(ngModel)]="motif" required>
+                </label>
+                <br><br>
+                <label>
+                    Bilan :
+                    <input name="bilan" [(ngModel)]="bilan" required>
+                </label>
+                <br><br>
+                <label>Le médecin :
+                    <select name="idMedecin" id="idMedecin" [(ngModel)]="idMedecin" required>
+                        <option value="default">----</option>
+                        <option *ngFor="let medecin of medecins;let i=index" value={{medecin.id}}>{{medecin.nom}}
+                        </option>
+                    </select>
+                </label>
+
+                <br><br>
+                <button type="submit" [disabled]="!rapportForm.valid">Valider</button>
+            </form>
+        </div>
+    </div>
+</div>

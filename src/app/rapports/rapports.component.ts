@@ -13,6 +13,7 @@ export class RapportsComponent implements OnInit {
   @Input() rapportBilan : string;
   @Input() rapportDate: string;
   @Input() rapportMedecin : string;
+  @Input() id : number;
 
   constructor(private rapportservice: RapportService) { }
 

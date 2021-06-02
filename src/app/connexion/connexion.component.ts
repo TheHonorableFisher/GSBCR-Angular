@@ -23,13 +23,12 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit(): void {
     this.visiteurService.getConnexion('dandre', 'oppg5');
-    console.log(this.visiteurService);
 
   }
 
   onSignIn() {
 
-    if (this.visiteurService.getVisiteur()) {
+    if (this.visiteurService.getConnexion(this.username,this.pwd)) {
       this.authService.isAuth = true;
 
       this.visiteurs = this.visiteurService.getVisiteur();
