@@ -2,8 +2,8 @@
     text-align: center;
 }
 
-.position-corriger{
-    margin-left: -50px;
+th{
+    width: 400px;
 }
 
 .title{
@@ -11,7 +11,7 @@
     font-weight: bold;
 }
 
-#rechercheMedecin{
+#rechercheMedicament{
     width: 50%;
     float: left;
 }

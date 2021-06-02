@@ -16,7 +16,6 @@ export class MedecinService{
         this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedecins').subscribe((responce) =>{
             this.medecins = responce;
             this.emitMedecinSubject();
-            console.log(responce);
         },(error)=>{
             console.log('Erreur : ' + error);
         })
@@ -29,6 +28,20 @@ export class MedecinService{
         })
     }
     
+    getMedecinFromServerByNom(nom){
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedecins&nom='+nom).subscribe((responce) => {
+            this.medecins=responce;
+            this.emitMedecinSubject();
+        })
+    }
+
+    getMedecinFromServerByDepartement(dep){
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedecins&dep='+dep).subscribe((responce) => {
+            this.medecins=responce;
+            this.emitMedecinSubject();
+        })
+    }
+
     emitMedecinSubject(){
         this.medecinSubject.next(this.medecins.slice());
     }

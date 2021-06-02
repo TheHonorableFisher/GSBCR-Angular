@@ -12,10 +12,6 @@ export class RapportsViewComponent implements OnInit {
   rapports: any[];
   rapportSubscription: Subscription;
 
-  @Input() rapportID: string;
-  @Input() visiteurID : string;
-  @Input() medecinID : string;
-
   constructor(private rapportService: RapportService) { }
 
   ngOnInit(): void {
@@ -25,7 +21,7 @@ export class RapportsViewComponent implements OnInit {
     this.rapportService.emitRapportSubject();
 
     // appel pour récupérer les rapports sinon ça marche pas
-    this.rapportService.getRapportsFromServer();
+    this.rapportService.getRapportsFromServer(sessionStorage.getItem('id'));
   }
 
   ngOnDestroy(){

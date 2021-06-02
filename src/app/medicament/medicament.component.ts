@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { MedicamentService } from '../services/medicament.service';
 @Component({
   selector: 'app-medicament',
   templateUrl: './medicament.component.html',
@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedicamentComponent implements OnInit {
 
-  constructor() { }
+  @Input() medicamentImg: string;
+  @Input() medicamentNom: string;
+  @Input() medicamentDesc: string;
+  @Input() medicamentEffetIndesirable: string;
+
+  constructor(private medicamentService : MedicamentService) { }
 
   ngOnInit(): void {
   }

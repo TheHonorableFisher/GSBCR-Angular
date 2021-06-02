@@ -1,0 +1,41 @@
+<app-accueil></app-accueil>
+
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-6">
+            <h2 class="title">Nos médicaments</h2>
+
+            <br><br>
+
+            <div class="Filtres">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="rechercheMedicament" id="rechercheMedicament"
+                        placeholder="Pour rechercher un médicament c'est ici !">
+                    <input type="button" value="Rechercher" id="bouttonRecherche" (click)="onRecherche()">
+                </div>
+            </div>
+
+            <br><br>
+
+            <table class="table">
+                <thead>
+                    <tr class="centered">
+                        <th>Image</th>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Effets secondaires</th>
+                    </tr>
+                </thead>
+            </table>
+            
+            <app-medicament *ngFor="let medicament of medicaments" [medicamentNom]="medicament.nomCommercial"
+                [medicamentDesc]="medicament.effets" [medicamentEffetIndesirable]="medicament.contreIndications"
+                [medicamentImg]="medicament.img">
+            </app-medicament>
+        
+        </div>
+    </div>
+</div>
