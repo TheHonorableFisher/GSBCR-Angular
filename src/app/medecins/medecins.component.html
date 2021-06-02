@@ -1,4 +1,11 @@
-<li [ngClass]="{'list-group-item' : true}">
-    <h4>Dr {{medecinNom}} {{medecinprenom}}</h4>
-    <p>téléphone : {{medecinTel}}</p>
-</li>
+<table class="table position-corriger">
+    <tbody>
+        <tr>
+            <td>Dr {{medecinNom}} </td>
+            <td>{{medecinTel}}</td>
+            <td>{{medecinAdresse}}</td>
+            <td>{{medecinSpe}}</td>
+            <td>{{medecinDepartement}}</td>
+        </tr>
+    </tbody>
+</table>

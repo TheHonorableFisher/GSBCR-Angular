@@ -1,4 +1,21 @@
-<li [ngClass]="{'list-group-item' : true}">
-    <h4>Rapport n°{{rapportID}}</h4>
-    <p>Visiteur : {{visiteurID}} Medecin : {{medecinID}}</p>
-</li>
+<table class="table centered position-corriger">
+    <tbody>
+        <tr>
+            <td>
+                {{rapportID}}
+            </td>
+            <td>
+                {{rapportMotif}}
+            </td>
+            <td>
+                {{rapportBilan}}
+            </td>
+            <td>
+                {{rapportDate}}
+            </td>  
+            <td>
+                <a routerLink="../medecins/{{id}}">{{rapportMedecin}}</a>
+            </td>  
+        </tr>
+    </tbody>
+</table>

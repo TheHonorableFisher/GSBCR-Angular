@@ -25,6 +25,13 @@ export class MedicamentService{
         })
     }
 
+    getMedicamentFromServerByNom($nom){
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedicaments&nom='+ $nom).subscribe((responce) =>{
+            this.medicaments = responce;
+            this.emitMedicamentSubject();
+        })
+    }
+
     emitMedicamentSubject(){
         this.medicamentSubject.next(this.medicaments.slice());
     }

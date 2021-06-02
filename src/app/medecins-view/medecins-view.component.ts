@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MedecinService } from '../services/medecin.service';
 
@@ -17,12 +18,13 @@ export class MedecinsViewComponent implements OnInit {
   @Input() medecinprenom: string;
   @Input() medecinTel: string;
   
-  constructor(private medecinService: MedecinService) { }
+  test: boolean = false;
+
+  constructor(private medecinService: MedecinService, private router : Router) { }
   
   ngOnInit(): void {
     this.medecinSubscription = this.medecinService.medecinSubject.subscribe((medecins: any[]) => {
       this.medecins = medecins;
-      console.log('test1 : ' + this.medecins);
     });
     this.medecinService.emitMedecinSubject();
 
@@ -30,9 +32,13 @@ export class MedecinsViewComponent implements OnInit {
     this.medecinService.getMedecinsFromServer();
   }
 
-  
-  ngOnDestroy(){
-    this.medecinSubscription.unsubscribe();
+  onChange(value){
+    this.medecinService.getMedecinFromServerByDepartement(value);
+  }
+
+  onRecherche(){
+    var nom = ((document.getElementById('rechercheMedecin') as HTMLInputElement).value);
+    this.medecinService.getMedecinFromServerByNom(nom);
   }
 
 }

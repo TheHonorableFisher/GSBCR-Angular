@@ -1,11 +1,118 @@
+<app-accueil></app-accueil>
 <div class="container">
     <div class="row">
         <div class="col-xs-6">
-            <h2>Nos médecins</h2>
-            <ul class="list-group">
-                <app-medecins *ngFor="let medecin of medecins;let i = index" [medecinNom]="medecin.nom" [medecinprenom]="medecin.prenom" [medecinTel]="medecin.tel">
-                </app-medecins>
-            </ul>
+            <h2 class="title">NOS MEDECINS</h2>
+
+            <br><br>
+
+            <div class="Filtres">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="rechercheMedecin" id="rechercheMedecin"
+                        placeholder="Pour rechercher un medecin c'est ici !">
+                    <input type="button" value="Rechercher" id="bouttonRecherche" (click)="onRecherche()">
+
+                    <br><br>
+
+                    <div class="dropdown">
+                        <div class="departement">
+                            <label for="departement">Département :</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault0" value="0" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault0">
+                                    Tous
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1" value="1" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    1
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="2" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    2
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="3" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    3
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="4" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    4
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="5" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    5
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="6" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    6
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="7" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    7
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="8" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    8
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" value="9" (change)="onChange($event.target.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    9
+                                </label>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+
+            <table class="table position-corriger">
+                <thead>
+                    <tr class="centered">
+                        <th>Nom</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Specialité complémentaire</th>
+                        <th>Departement</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <app-medecins *ngFor="let medecin of medecins;let i = index" [medecinNom]="medecin.nom"
+                [medecinTel]="medecin.tel" [medecinAdresse]="medecin.adresse"
+                [medecinSpe]="medecin.specialitecomplementaire" [medecinDepartement]="medecin.departement">
+            </app-medecins>
+
         </div>
     </div>
 </div>

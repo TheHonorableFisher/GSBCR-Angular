@@ -23,13 +23,12 @@ export class ConnexionComponent implements OnInit {
 
   ngOnInit(): void {
     this.visiteurService.getConnexion('dandre', 'oppg5');
-    console.log(this.visiteurService);
 
   }
 
   onSignIn() {
 
-    if (this.visiteurService.getVisiteur()) {
+    if (this.visiteurService.getConnexion(this.username,this.pwd)) {
       this.authService.isAuth = true;
 
       this.visiteurs = this.visiteurService.getVisiteur();
@@ -46,27 +45,6 @@ export class ConnexionComponent implements OnInit {
     } else {
 
     }
-    /*
-    if (this.visiteurService.getConnexion(this.username,this.pwd)) {
-      this.authService.isAuth = true;
-
-      //console.log(this.visiteurService);
-      //console.log(this.visiteurService.getVisiteur());
-
-      this.visiteurs = this.visiteurService.getVisiteur();
-
-      sessionStorage.setItem('id', this.visiteurs['id']);
-      sessionStorage.setItem('nom', this.visiteurs['nom']);
-      sessionStorage.setItem('prenom', this.visiteurs['prenom']);
-      sessionStorage.setItem('adresse', this.visiteurs['adresse']);
-      sessionStorage.setItem('cp', this.visiteurs['cp']);
-      sessionStorage.setItem('ville', this.visiteurs['ville']);
-
-      //this.router.navigateByUrl("/accueil");
-
-    } else {
-      // TODO afficher message d'erreur
-    }*/
   }
 
   getUsername(event: any) {

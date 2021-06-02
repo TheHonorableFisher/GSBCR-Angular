@@ -16,16 +16,24 @@ import { RapportService } from './services/rapport.service';
 import { MedecinsViewComponent } from './medecins-view/medecins-view.component';
 import { RapportsViewComponent } from './rapports-view/rapports-view.component';
 import { AuthGuard } from './services/AuthGuards.service';
-import {AuthService} from './services/auth.service';
+import { AuthService } from './services/auth.service';
 import { VisiteurService } from './services/visiteur.service';
 import { ConnexionViewComponent } from './connexion-view/connexion-view.component';
+import { AccueilViewComponent } from './accueil-view/accueil-view.component';
+import { MedicamentViewComponent } from './medicament-view/medicament-view.component';
+import { UnMedecinComponent } from './un-medecin/un-medecin.component';
+import { UnMedecinViewComponent } from './un-medecin-view/un-medecin-view.component';
+import { RapportsFormComponent } from './rapports-form/rapports-form.component';
+import { FormsModule } from "@angular/forms";
 
 const appRoutes: Routes = [
-  {path: 'accueil',canActivate: [AuthGuard] ,component: AccueilComponent},
-  {path: 'medicaments',canActivate: [AuthGuard], component: MedicamentComponent},
+  {path: 'accueil',canActivate: [AuthGuard] ,component: AccueilViewComponent},
+  {path: 'medicaments',canActivate: [AuthGuard], component: MedicamentViewComponent},
   {path: 'medecins',canActivate: [AuthGuard], component: MedecinsViewComponent},
+  {path: 'medecins/:id',canActivate: [AuthGuard],component: UnMedecinViewComponent},
   {path: 'rapports',canActivate: [AuthGuard], component: RapportsViewComponent},
   {path : 'connection',component: ConnexionViewComponent},
+  {path : 'rapports/add',canActivate: [AuthGuard],component:RapportsFormComponent},
   {path: '', component:ConnexionComponent},
   {path : 'not-found',component:FourOhFourComponent},
   {path : '**', redirectTo : '/not-found'}
@@ -43,9 +51,15 @@ const appRoutes: Routes = [
     MedecinsViewComponent,
     RapportsViewComponent,
     ConnexionViewComponent,
+    AccueilViewComponent,
+    MedicamentViewComponent,
+    UnMedecinComponent,
+    UnMedecinViewComponent,
+    RapportsFormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes)

@@ -9,8 +9,10 @@ import { MedecinService } from '../services/medecin.service';
 export class MedecinsComponent implements OnInit {
 
   @Input() medecinNom: string;
-  @Input() medecinprenom: string;
   @Input() medecinTel: string;
+  @Input() medecinAdresse: string;
+  @Input() medecinSpe: string;
+  @Input() medecinDepartement: string;
 
   constructor(private medecinService: MedecinService) { }
 
