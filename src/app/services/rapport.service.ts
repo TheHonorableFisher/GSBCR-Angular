@@ -9,8 +9,6 @@ export class RapportService{
 
     private rapports = [];
 
-    private liste = [];
-
     constructor(private HttpClient : HttpClient){ }
 
     getRapportsFromServer($id){
