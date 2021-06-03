@@ -6,9 +6,11 @@ import { HttpClient } from '@angular/common/http';
 export class MedecinService{
 
     medecinSubject = new Subject<any[]>();
-   
+    speSubject = new Subject<any[]>();
+
     private medecins = [];
-   
+    private spe = [];
+
     constructor(private HttpClient : HttpClient){ }
 
     
@@ -42,8 +44,25 @@ export class MedecinService{
         })
     }
 
+    getMedecinFromServerBySpe(spe){
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedecins&spe='+spe).subscribe((responce) => {
+            this.medecins=responce;
+            this.emitMedecinSubject();
+        })
+    }
+
+    getMedecinSpecialiteFromServer(){
+        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedecins&spe=all').subscribe((responce) => {
+            this.spe=responce;
+            this.emitSpeSubject();
+        })
+    }
+
     emitMedecinSubject(){
         this.medecinSubject.next(this.medecins.slice());
     }
     
+    emitSpeSubject(){
+        this.speSubject.next(this.spe.slice());
+    }
 }
