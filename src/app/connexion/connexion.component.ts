@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { element } from 'protractor';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { VisiteurService } from '../services/visiteur.service';
@@ -22,6 +23,7 @@ export class ConnexionComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private visiteurService: VisiteurService) { }
 
   ngOnInit(): void {
+    this.visiteurService.getConnexion('dandre','oppg5');
   }
 
   onSignIn() {
@@ -31,7 +33,7 @@ export class ConnexionComponent implements OnInit {
     this.visiteurService.emitVisiteurSubject();
 
     this.visiteurService.getConnexion(this.username, this.pwd);
-
+    
     if (this.visiteurService['visiteurs'] != null) {
 
       this.visiteurService['visiteurs'].forEach(element => {
@@ -43,11 +45,12 @@ export class ConnexionComponent implements OnInit {
         sessionStorage.setItem('ville', element['ville']);
       });
 
+      console.log(this.visiteurService);
+      console.log(this.visiteurService['visiteurs'].length);
+
       this.authService.isAuth = true;
 
       this.router.navigateByUrl("/accueil");
-    } else {
-
     }
   }
 
