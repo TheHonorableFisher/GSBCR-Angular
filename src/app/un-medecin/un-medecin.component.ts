@@ -18,6 +18,10 @@ export class UnMedecinComponent implements OnInit {
   constructor(private medecinService : MedecinService) { }
 
   ngOnInit(): void {
+    if (this.medecinSpe == null) {
+      this.medecinSpe = "Aucune";
+    }
   }
+  
 
 }

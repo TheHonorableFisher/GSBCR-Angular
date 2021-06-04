@@ -1,0 +1,27 @@
+.fullWidth{
+    width: 100%;
+}
+
+.centered{
+    text-align: center;
+}
+
+.imgMedecin{
+    margin-top: 25px;
+}
+
+.infoPerso{
+    text-align: left;
+    margin-left: 175px;
+    font-weight: bolder;
+}
+
+.infoDoc{
+    text-align: left;
+    margin-left: 175px;
+    font-weight: bolder;
+}
+
+.leMedecin{
+    margin-top: 25px;
+}

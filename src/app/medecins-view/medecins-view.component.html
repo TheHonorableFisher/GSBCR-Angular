@@ -89,7 +89,16 @@
                                 </label>
                             </div>
                         </div>
-                       
+                    </div>
+                    <br>
+                    <div>
+                        <label>Les Spécialités : 
+                            <select name="lesSpe" id="lesSpe" (change)="onSpe($event.target.value)">
+                                <option value="toutes">Toutes</option>
+                                <option *ngFor="let spe of Spe;let i=index" value={{spe.specialitecomplementaire}} >{{spe.specialitecomplementaire}}
+                                </option>
+                            </select>
+                        </label>
                     </div>
                 </div>
             </div>
