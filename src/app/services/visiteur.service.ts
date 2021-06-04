@@ -12,7 +12,7 @@ export class VisiteurService {
     constructor(private HttpClient: HttpClient) { }
 
     getConnexion($login, $mdp) {
-        this.HttpClient.get<any[]>('http://172.20.119.1/?param=connexion&login=' + $login + '&mdp=' + $mdp).subscribe((responce) => {
+        this.HttpClient.get<any[]>('http://172.20.119.1/WebService/?param=connexion&login=' + $login + '&mdp=' + $mdp).subscribe((responce) => {
             this.visiteurs = responce;
             this.emitVisiteurSubject();
         })
