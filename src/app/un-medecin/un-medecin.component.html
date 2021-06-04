@@ -1,3 +1,30 @@
-<p>CEci est un test {{medecinNom}} </p>
+<app-accueil></app-accueil>
+<div class="container">
+    <div class="leMedecin">
+        <div class="row">
+            <div class="col-xs fullWidth">
+                <div class="centered imgMedecin">
+                    <img class="imgDoc" src="assets/img/docteur.jpg" alt="image_docteur">
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="infoPerso col">
+                <label>Nom : {{medecinNom}}</label>
+                <br>
+                <label>Prénom : {{medecinPrenom}}</label>
+                <br>
+                <label>Adresse : {{medecinAdresse}}</label>
+                <br>
+                <label>Téléphone : {{medecinTel}}</label>
+            </div>
+            <div class="infoDoc col">
+                <label>Département : {{medecinDep}}</label>
+                <br>
+                <label>Spécialité : {{medecinSpe}}</label>
+            </div>
+        </div>
+    </div>
 
-<p>autre test</p>
+</div>

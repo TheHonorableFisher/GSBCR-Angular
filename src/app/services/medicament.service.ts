@@ -12,21 +12,21 @@ export class MedicamentService{
     constructor(private HttpClient : HttpClient){ }
 
     getMedicamentsFromServer(){
-        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedicaments').subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/WebService/?param=getToutLesMedicaments').subscribe((responce) =>{
             this.medicaments = responce;
             this.emitMedicamentSubject();
         })
     }
 
     getMedicamentFromServerById($id){
-        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedicaments&id='+$id).subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/WebService/?param=getToutLesMedicaments&id='+$id).subscribe((responce) =>{
             this.medicaments = responce;
             this.emitMedicamentSubject();
         })
     }
 
     getMedicamentFromServerByNom($nom){
-        this.HttpClient.get<any[]>('http://172.20.119.1/?param=getToutLesMedicaments&nom='+ $nom).subscribe((responce) =>{
+        this.HttpClient.get<any[]>('http://172.20.119.1/WebService/?param=getToutLesMedicaments&nom='+ $nom).subscribe((responce) =>{
             this.medicaments = responce;
             this.emitMedicamentSubject();
         })

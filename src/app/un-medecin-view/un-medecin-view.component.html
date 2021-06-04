@@ -1,6 +1,7 @@
 <!--
-<app-un-medecin [medecinNom]="medecins.nom" [medecinPrenom]="medecins.prenom" [medecinAdresse]="medecins.adresse"
-[medecinTel]="medecins.tel" [medecinSpe]="medecins.specialitecomplementaire" [medecinDep]="medecins.departement">
-</app-un-medecin>
--->
+
 <app-un-medecin></app-un-medecin>
+-->
+<app-un-medecin *ngFor="let medecin of medecins" [medecinNom]="medecin.nom" [medecinPrenom]="medecin.prenom" [medecinAdresse]="medecin.adresse"
+[medecinTel]="medecin.tel" [medecinSpe]="medecin.specialitecomplementaire" [medecinDep]="medecin.departement">
+</app-un-medecin>

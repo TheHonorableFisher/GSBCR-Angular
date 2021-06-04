@@ -14,6 +14,9 @@ export class MedecinsViewComponent implements OnInit {
   medecins: any[];
   medecinSubscription: Subscription;
 
+  Spe: any[];
+  SpeSubscription : Subscription;
+
   @Input() medecinNom: string;
   @Input() medecinprenom: string;
   @Input() medecinTel: string;
@@ -23,6 +26,7 @@ export class MedecinsViewComponent implements OnInit {
   constructor(private medecinService: MedecinService, private router : Router) { }
   
   ngOnInit(): void {
+    // Récupération des médecins
     this.medecinSubscription = this.medecinService.medecinSubject.subscribe((medecins: any[]) => {
       this.medecins = medecins;
     });
@@ -30,10 +34,23 @@ export class MedecinsViewComponent implements OnInit {
 
     // Appel pour récupérer les médecins sinon sa n'affiche rien
     this.medecinService.getMedecinsFromServer();
+
+    // Récupération de la spécialité des médecins
+    this.SpeSubscription = this.medecinService.speSubject.subscribe((specialites: any[]) =>{
+      this.Spe = specialites;
+    })
+    this.medecinService.emitSpeSubject();
+
+    // Appel pour récupérer les specialités sinon ça ne marche pas
+    this.medecinService.getMedecinSpecialiteFromServer();
   }
 
   onChange(value){
     this.medecinService.getMedecinFromServerByDepartement(value);
+  }
+
+  onSpe(value){
+    this.medecinService.getMedecinFromServerBySpe(value);
   }
 
   onRecherche(){

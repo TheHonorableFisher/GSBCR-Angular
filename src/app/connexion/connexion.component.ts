@@ -22,24 +22,28 @@ export class ConnexionComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private visiteurService: VisiteurService) { }
 
   ngOnInit(): void {
-    this.visiteurService.getConnexion('dandre', 'oppg5');
-
   }
 
   onSignIn() {
+    this.visiteurSubscription = this.visiteurService.visiteurSubject.subscribe((visiteurs: any[]) => {
+      this.visiteurs = visiteurs;
+    });
+    this.visiteurService.emitVisiteurSubject();
 
-    if (this.visiteurService.getConnexion(this.username,this.pwd)) {
+    this.visiteurService.getConnexion(this.username, this.pwd);
+
+    if (this.visiteurService['visiteurs'] != null) {
+
+      this.visiteurService['visiteurs'].forEach(element => {
+        sessionStorage.setItem('id', element['id']);
+        sessionStorage.setItem('nom', element['nom']);
+        sessionStorage.setItem('prenom', element['prenom']);
+        sessionStorage.setItem('adresse', element['adresse']);
+        sessionStorage.setItem('cp', element['cp']);
+        sessionStorage.setItem('ville', element['ville']);
+      });
+
       this.authService.isAuth = true;
-
-      this.visiteurs = this.visiteurService.getVisiteur();
-      
-      sessionStorage.setItem('id', this.visiteurs['id']);
-      sessionStorage.setItem('nom', this.visiteurs['nom']);
-      sessionStorage.setItem('prenom', this.visiteurs['prenom']);
-      sessionStorage.setItem('adresse', this.visiteurs['adresse']);
-      sessionStorage.setItem('cp', this.visiteurs['cp']);
-      sessionStorage.setItem('ville', this.visiteurs['ville']);
-
 
       this.router.navigateByUrl("/accueil");
     } else {
