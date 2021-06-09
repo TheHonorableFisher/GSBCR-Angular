@@ -14,6 +14,8 @@ export class UnMedecinComponent implements OnInit {
   @Input() medecinTel: String;
   @Input() medecinSpe: String;
   @Input() medecinDep: String;
+  @Input() medecinLieu: String;
+  @Input() medecinLibelle: string;
 
   constructor(private medecinService : MedecinService) { }
 

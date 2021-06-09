@@ -13,6 +13,7 @@ export class MedecinsComponent implements OnInit {
   @Input() medecinAdresse: string;
   @Input() medecinSpe: string;
   @Input() medecinDepartement: string;
+  @Input() medecinLibelle: string;
 
   constructor(private medecinService: MedecinService) { }
 
